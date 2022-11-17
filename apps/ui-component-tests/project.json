@@ -1,0 +1,101 @@
+{
+  "name": "ui-component-tests",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/ui-component-tests/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/ui-component-tests",
+        "index": "apps/ui-component-tests/src/index.html",
+        "baseHref": "/",
+        "main": "apps/ui-component-tests/src/main.tsx",
+        "polyfills": "apps/ui-component-tests/src/polyfills.ts",
+        "tsConfig": "apps/ui-component-tests/tsconfig.app.json",
+        "assets": [
+          "apps/ui-component-tests/src/favicon.ico",
+          "apps/ui-component-tests/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/ui-component-tests/src/environments/environment.ts",
+              "with": "apps/ui-component-tests/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/webpack:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "ui-component-tests:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "ui-component-tests:build:development"
+        },
+        "production": {
+          "buildTarget": "ui-component-tests:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "apps/ui-component-tests/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
+      "options": {
+        "jestConfig": "apps/ui-component-tests/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "component-test": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/ui-component-tests/cypress.config.ts",
+        "testingType": "component",
+        "devServerTarget": "ui-component-tests:build",
+        "skipServe": true
+      }
+    }
+  },
+  "tags": []
+}

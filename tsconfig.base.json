@@ -2,6 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "rootDir": ".",
+    "strict": true,
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
@@ -13,8 +14,12 @@
     "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@myaccountui/ui": ["libs/ui/src/index.ts"]
+    },
+    "types": ["jest"]
   },
   "exclude": ["node_modules", "tmp"]
 }
