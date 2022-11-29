@@ -1,11 +1,9 @@
-import { InputBox } from '@myaccountui/ui';
-import styles from './index.module.scss';
+import { useAuth } from '../context/auth';
 
 export function Index() {
   return (
     <>
-      <div className={styles.page}>Awesome</div>
-      <InputBox />
+      <h1>Home</h1>
     </>
   );
 }

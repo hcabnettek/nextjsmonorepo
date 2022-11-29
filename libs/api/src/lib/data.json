@@ -1,0 +1,17 @@
+[
+  {
+    "baId": "",
+    "baNickName": "",
+    "role": "",
+    "baStatusCd": "",
+    "paperlessEnable": true,
+    "paperlessEligible": true,
+    "serviceAddr": {
+      "streetAddr": "",
+      "aptNum": "",
+      "city": "",
+      "state": "",
+      "zip": ""
+    }
+  }
+]

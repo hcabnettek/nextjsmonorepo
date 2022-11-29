@@ -17,9 +17,11 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
+      "@myaccountui/api": ["libs/api/src/index.ts"],
       "@myaccountui/ui": ["libs/ui/src/index.ts"]
     },
-    "types": ["jest"]
+    "types": ["jest", "cypress", "node"]
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": ["node_modules", "tmp"],
+  "include": ["../../libs/ui/src/lib/**/*.cy.{js,jsx,ts,tsx}"]
 }

@@ -2,8 +2,9 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../../dist/out-tsc",
-    "module": "commonjs",
-    "types": ["cypress", "node"]
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "module": "commonjs"
   },
   "include": [
     "support/**/*.ts",
@@ -12,6 +13,7 @@
     "../**/*.cy.tsx",
     "../**/*.cy.js",
     "../**/*.cy.jsx",
-    "../**/*.d.ts"
+    "../**/*.d.ts",
+    "../../libs/ui/src/lib/**/*.cy.{js,jsx,ts,tsx}"
   ]
 }
